@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import HomeHeader from './components/Header.vue'
+import homeHeader from './components/Header.vue'
 export default {
   name: 'Home',
   components: {
-    HomeHeader
+    homeHeader
   }
 }
 </script>
