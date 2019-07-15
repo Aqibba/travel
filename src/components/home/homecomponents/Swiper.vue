@@ -2,7 +2,7 @@
 <div class="warpper">
   <swiper :options="swiperOption">
     <!-- 轮播图 -->
-    <swiper-slide v-for="item of swiperList" :key="item">
+    <swiper-slide v-for="item of swiperList" :key="item.id">
       <img :src="item.imgUrl" class="slideImg">
     </swiper-slide>
     <!-- 轮播图上面的小圆点 -->
