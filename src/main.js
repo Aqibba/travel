@@ -20,9 +20,19 @@ import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
+// 引入 axios.js 文件
+import axios from 'axios'
+
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+
+// 注册并使用
 Vue.use(VueAwesomeSwiper)
+
+axios.defaults.withCredentials = true
+// 设置session基础路径
+axios.defaults.baseURL = 'http://127.0.0.1:3000/'
+Vue.prototype.axios = axios
 
 /* eslint-disable no-new */
 new Vue({

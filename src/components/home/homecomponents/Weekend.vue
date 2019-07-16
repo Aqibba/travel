@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div class="title">热销推荐</div>
+    <div class="title">周末去哪</div>
     <ul>
       <!-- 循环的信息写在这里 -->
-      <li v-for="item of recommendList" :key="item.id" class="item border-bottom">
-        <img :src=" 'http://127.0.0.1:3000/imgs/' + item.imgUrl " class="item-img">
+      <li v-for="item of weekendList" :key="item.id" class="item border-bottom">
+        <div class="img-wrapper">
+          <img :src=" 'http://127.0.0.1:3000/imgs/' + item.imgUrl " class="item-img">
+        </div>
         <div class="item-info">
-          <p class="item-title">{{item.id}}</p>
+          <p class="item-title">故宫</p>
           <p class="item-desc">世界五大宫之首，穿越与您近在咫尺</p>
-          <button class="item-btn">查看详情</button>
         </div>
       </li>
     </ul>
@@ -16,19 +17,19 @@
 </template>
 <script>
 export default {
-  name: 'HomeRecommend',
+  name: 'HomeWeekend',
   data () {
     return {
-      recommendList: []
+      weekendList: []
     }
   },
   methods: {
     loadMore () {
-      var url = 'recommend'
+      var url = 'weekend'
       this.axios.get(url).then(result => {
         // console.log(result)
-        var rows = this.recommendList.concat(result.data.data)
-        this.recommendList = rows
+        var rows = this.weekendList.concat(result.data.data)
+        this.weekendList = rows
       })
     }
   },
@@ -44,18 +45,14 @@ export default {
     background-color #ccc
     text-indent .2rem
     margin-top .2rem
-  .item
-    display flex
-    height 1.9rem
+  .img-wrapper
     overflow hidden
+    height 0
+    padding-bottom 33.9%
     .item-img
-      width 1.7rem
-      height 1.7rem
-      padding .1rem
+      width 100%
     .item-info
-      flex 1
-      min-width 0
-      padding .1rem
+      padding .2rem
       .item-title
         line-height .54rem
         font-size .32rem

@@ -217,3 +217,7 @@ a {
   color: #25a4bb;
   text-decoration: none;
 }
+
+* {
+  touch-action: pan-y;
+}
