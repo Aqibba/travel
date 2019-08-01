@@ -4,9 +4,11 @@
       <span class="iconfont back">&#xe624;</span>
     </div>
     <div class="header-input">
-      <span class="iconfont">&#xe632;</span>输入城市/游玩/景点/主题
+      <span class="iconfont">&#xe632;<input type="text" placeholder="输入城市/游玩/景点/主题"></span>
     </div>
-    <div class="header-right area">城市<span class="iconfont">&#xe6aa;</span></div>
+    <router-link to="/city">
+      <div class="header-right area">{{$store.state.city}}<span class="iconfont">&#xe6aa;</span></div>
+    </router-link>
   </div>
 </template>
 
@@ -16,6 +18,10 @@ export default {
   data () {
     return {}
   }
+  // 从父组件中获取数据
+  // props: {
+  //   city: String
+  // }
 }
 </script>
 
@@ -44,9 +50,11 @@ export default {
       color #cccccc
       border-radius .1rem
     .header-right
-      width 1.24rem
+      min-width 1.04rem
+      padding-left .1rem
       float right
       text-align center
+      color #ffffff
       .area
         font-size .24rem
         margin-left -0.4rem

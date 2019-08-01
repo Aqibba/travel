@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view/>
+    <!-- keep-alive
+    当路由的内容被加载过一次以后,把加载过的内容放入内存中,
+    下次加载时不需要重新加载,减少页面向服务器递交请求的次数,
+    提高响应速度-->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

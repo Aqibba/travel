@@ -9,13 +9,13 @@
   </div>
 </template>
 <script>
-// import axios from 'axios'
 import HomeHeader from './homecomponents/Header'
 import HomeSwiper from './homecomponents/Swiper'
 import HomeIcon from './homecomponents/Icon'
 import HomeHot from './homecomponents/Hot'
 import HomeRecommend from './homecomponents/Recommend'
 import HomeWeekend from './homecomponents/Weekend'
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -25,22 +25,34 @@ export default {
     HomeHot,
     HomeRecommend,
     HomeWeekend
-  }
-}
-/*
-mounted () {
-    this.gitHomeInfo()
+  },
+  data () {
+    return {
+      // city: ''
+    }
   },
   methods: {
-    gitHomeInfo () {
-      // 当项目上线是，从服务器获取的数据存放位置，改变访问位置
-      // axios.get('/api/index.json').then(this.gitHomeInfoSuccess)
-      axios.get('/static/index.json').then(this.gitHomeInfoSuccess)
+    // 创建一个函数用户使用ajax获取后台数据
+    getHomeInfo () {
+      axios.get('http://localhost:8080/static/mock/index.json')
+        .then(this.getHomeInfoSuccess)
     },
-    gitHomeInfoSuccess (res) {
-      // json 文件中的数据
-      // console.log(res)
+    getHomeInfoSuccess (res) {
+      // console.log(res.data)
+
+      res = res.data
+      // 如果后端返回结果并且有数据，那么这个传出的 city 就是后台传出的 city
+      // if (res.ret && res.data) {
+      //   this.city = res.data.city
+      // }
     }
+  },
+  mounted () {
+    // console.log(11111)
+    this.getHomeInfo()
+  },
+  activated () {
+    // console.log(22222)
+  }
 }
-*/
 </script>
